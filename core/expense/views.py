@@ -57,7 +57,7 @@ class TransactionAPI(APIView):
         serializer = TransactionsSerializer(transaction, data=data, partial=True)
         if not serializer.is_valid():
             return Response({
-                "message": "problem in adding in transaction",
+                "message": "problem in patching in transaction",
                 "errors": serializer.errors,
             })
         serializer.save()
@@ -71,7 +71,7 @@ class TransactionAPI(APIView):
 
         if not data.get('id'):
              return Response({
-                "message": "problem in patching in transaction",
+                "message": "problem in deleting the transaction",
                 "errors": "id is required",
             })
         
